@@ -8,8 +8,8 @@ function [D,Dt] = defDDt3D
          function DU = ForwardD(U)
             DU = cell(3,1);
             % Forward finite difference operator
-            DU{1} = [diff(U,1,2), U(:,1,:) - U(:,end,:)];%20*20*12 double;diff第三个参数为2时,则变为列差分运算，后列减前列，二者合为一个矩阵DU{1}
-            DU{2} = [diff(U,1,1); U(1,:,:) - U(end,:,:)];%20*20*12 double;diff第3个参数为1时，表示下行减上行，[]表示矩阵
+            DU{1} = [diff(U,1,2), U(:,1,:) - U(:,end,:)];
+            DU{2} = [diff(U,1,1); U(1,:,:) - U(end,:,:)];
             temp = zeros(size(U));
             temp(:,:,1:end-1) = diff(U,1,3);
             temp(:,:,end) = U(:,:,1) - U(:,:,end);

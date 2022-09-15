@@ -5,7 +5,7 @@ s = sqrt(abs(s));
 
 s = diag(s);
 index = find(s >1e-6*max(s));
-v = v(:,index);%20*1
+v = v(:,index);
 s = diag(s(index));
 u = X*v;
 
